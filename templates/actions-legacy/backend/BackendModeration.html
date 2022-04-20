@@ -1,0 +1,42 @@
+<script>
+let wa_backend_url = '{$wa_backend_url}';
+</script>
+<script src="{$wa_url}wa-content/js/jquery/jquery-1.11.1.min.js"></script>
+<script src="{$wa_url}wa-apps/site/plugins/zregistry/js/fancybox/jquery.fancybox.pack.js"></script>
+<script src="{$wa_url}wa-apps/site/plugins/zregistry/js/moderation.js"></script>
+<script src="{$wa_url}wa-content/js/jquery-wa/wa.core.js"></script>
+<link rel="stylesheet" href="{$wa_url}wa-apps/site/plugins/zregistry/js/fancybox/jquery.fancybox.css">
+<link rel="stylesheet" href="{$wa_url}wa-apps/site/plugins/zregistry/css/backend.css">
+<link rel="stylesheet" href="{$wa_url}wa-apps/site/plugins/zregistry/css/table.css">
+<a href="{$wa_backend_url}site/"><- назад</a>
+<button mode='allow' class='allow'>Допустить</button>
+<button mode='delete' class='delete'>Удалить</button>
+<br><br>
+<table class="table_blur">
+   <tr>
+      <th></th>
+      <th>№</th>
+      <th>Фото</th>
+      <th>Гос номер</th>
+      <th>Регион</th>
+      <th>Адрес</th>
+   </tr>
+   {foreach $cars as $car}
+   <tr>
+      <td><input carid='{$car.id}' class="checkbox" type="checkbox"></td>
+      <td>{$car.id}</td>
+      <td>
+         {$int = false}
+         {foreach $car.photos as  $photo}
+         <a {if $int}style="display: none"{/if}  class="fancybox-gallery" rel="group1" href="{$urlToPhote}{$photo}">
+         <img class='photo-car' src="{$urlToPhote}{$photo}" alt=""/>
+         </a>
+         {$int = true}
+         {/foreach}
+      </td>
+      <td>{$car.car_number}</td>
+      <td>{$car.region_number} rus</td>
+      <td> {if $car.address_type == 'home'}Был замечен на стоянке{else}Был замечен на дороге{/if} по адресу:<br>{$car.address}</td>
+   </tr>
+   {/foreach}
+</table>
