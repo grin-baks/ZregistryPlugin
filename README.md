@@ -3,7 +3,7 @@
 ## What the plugin can do
 The plugin allows you to create a public car database. Provides protection from spam robots and moderation of publications.
 
-A demonstration of the plugin is presented here https://zauto.site/
+A demonstration of the plugin is presented here https://zauto.3na3.ru/
 
 ## How to use
 This component is a plugin for the Site application of the Webasyst framework.
